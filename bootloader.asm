@@ -6,7 +6,7 @@
 [ORG 0x7C00]
 
 start:
-    cli                     ; Désactive les interruptions
+    cli
     lgdt [gdt_descriptor]
 
     mov eax, cr0
