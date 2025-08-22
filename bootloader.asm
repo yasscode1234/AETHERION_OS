@@ -1,5 +1,5 @@
-; OrionOS - Bootloader
-; Copyright (C) 2025 [TonNom]
+; AETHERION OS - Bootloader
+; Copyright (C) 2025 yasscode
 ; Licensed under GPLv2
 
 [BITS 16]
