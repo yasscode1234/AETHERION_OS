@@ -1,6 +1,6 @@
 /*
- * OrionOS - Kernel
- * Copyright (C) 2025 [TonNom]
+ * AETHERION OS - Kernel
+ * Copyright (C) 2025 yasscode
  * Licensed under GPLv2
  */
 
@@ -43,23 +43,5 @@ void print_ia(const char* str) {
 }
 
 const char* reponses_ia[] = {
-    "Bonjour, je suis votre assistant OrionOS.",
-    "Je peux gerer les parametres et les mises a jour.",
-    "Que voulez-vous faire aujourd'hui ?"
-};
-
-void repondre_ia(int index) {
-    if(index < 0 || index >= sizeof(reponses_ia)/sizeof(reponses_ia[0])) return;
-    print_ia(reponses_ia[index]);
-}
-
-void kernel_main() {
-    for(int i=0; i<VGA_WIDTH*VGA_HEIGHT; i++)
-        VGA_BUFFER[i] = (0x0F << 8) | ' ';
-
-    print("Bienvenue sur OrionOS !\n", 0x0F);
-    print("Initialisation du module IA...\n", 0x0A);
-    repondre_ia(0);
-
-    while(1) __asm__ __volatile__("hlt");
-}
+    "Bonjour, je suis votre assistant AETHERION OS.",
+    "Je
