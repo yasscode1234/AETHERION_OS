@@ -1,6 +1,10 @@
 @echo off
 cd /d "C:\Users\mimouna\AETHERION_OS"
 
+echo 🔧 Configuration Git locale...
+git config user.name "yasscode1234"
+git config user.email "yelka5626@outlook.fr"
+
 echo 🔄 Ajout des fichiers modifiés...
 git add .
 
@@ -9,9 +13,9 @@ set /p commitMessage="📝 Entrez le message du commit : "
 git commit -m "%commitMessage%"
 
 echo.
-echo 🚀 Envoi vers la branche principale (main) sur GitHub...
+echo 🚀 Envoi vers GitHub (branche main)...
 git push origin main --force
 
 echo.
-echo ✅ Mise à jour terminée sur https://github.com/yasscode1234/AETHERION_OS !
+echo ✅ Fichiers mis à jour sur GitHub !
 pause
