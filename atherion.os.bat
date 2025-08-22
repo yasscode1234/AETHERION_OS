@@ -1,17 +1,17 @@
 @echo off
-cd /d "%~dp0"
+cd /d "C:\Users\mimouna\AETHERION_OS"
 
-echo Mise à jour du dépôt Git...
+echo 🔄 Ajout des fichiers modifiés...
 git add .
 
 echo.
-set /p commitMessage="Entrez le message du commit : "
+set /p commitMessage="📝 Entrez le message du commit : "
 git commit -m "%commitMessage%"
 
 echo.
-echo Envoi sur GitHub...
+echo 🚀 Envoi vers GitHub (branche main)...
 git push origin main --force
 
 echo.
-echo ✅ Mise à jour terminée !
+echo ✅ Fichiers mis à jour sur GitHub !
 pause
