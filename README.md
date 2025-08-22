@@ -1,6 +1,6 @@
-# OrionOS
+# AETHERION OS
 
-OrionOS est un OS minimaliste 64 bits développé en C et assembleur.
+AETHERION OS est un OS minimaliste 64 bits développé en C et assembleur.
 
 - Kernel minimal avec affichage texte
 - IA visible à droite de l’écran parlant français
