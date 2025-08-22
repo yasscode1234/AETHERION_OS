@@ -1,21 +1,22 @@
 @echo off
 cd /d "C:\Users\mimouna\AETHERION_OS"
 
-echo 🔧 Configuration Git locale...
+set /p branchName="🪄 Nom de la nouvelle branche : "
+git checkout -b %branchName%
+
 git config user.name "yasscode1234"
 git config user.email "yelka5626@outlook.fr"
 
-echo 🔄 Ajout des fichiers modifiés...
+echo 🔄 Ajout des fichiers...
 git add .
 
 echo.
-set /p commitMessage="📝 Entrez le message du commit : "
+set /p commitMessage="📝 Message du commit : "
 git commit -m "%commitMessage%"
 
 echo.
-echo 🚀 Envoi vers GitHub (branche main)...
-git push origin main --force
+echo 🚀 Push vers GitHub sur la branche %branchName%...
+git push origin %branchName%
 
-echo.
-echo ✅ Fichiers mis à jour sur GitHub !
+echo ✅ Branche '%branchName%' créée et poussée sur GitHub !
 pause
