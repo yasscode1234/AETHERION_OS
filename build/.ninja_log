@@ -1,0 +1,7 @@
+# ninja log v7
+28	253	7776599213274245	CMakeFiles/AETHERION_OS.dir/kernel/keyboard.c.obj	41c82de1a67da1ea
+23	263	7776599213234030	CMakeFiles/AETHERION_OS.dir/kernel/system.c.obj	3b803c8bbb1a0d20
+38	286	7776599213406821	CMakeFiles/AETHERION_OS.dir/kernel/ia.c.obj	e44a50220ddd9869
+12	289	7776599213097793	CMakeFiles/AETHERION_OS.dir/kernel/kernel.c.obj	e1b8d2bb4369f35
+18	300	7776599213182141	CMakeFiles/AETHERION_OS.dir/kernel/string.c.obj	94187ffa690dd5a
+34	320	7776599213334515	CMakeFiles/AETHERION_OS.dir/kernel/vga.c.obj	5d6515ef53ec6ad2

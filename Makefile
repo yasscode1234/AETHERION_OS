@@ -1,44 +1,37 @@
-# Toolchain
-CC = x86_64-elf-gcc
-LD = x86_64-elf-ld
-AS = nasm
+# ----------------- Variables -----------------
+NASM       := C:/mingw64/bin/nasm.exe
+CC         := C:/mingw64/bin/gcc.exe
+LD         := C:/mingw64/bin/ld.exe
+CFLAGS     := -ffreestanding -O2 -Wall -Wextra -Ikernel
+LDFLAGS    := -Tboot/link.ld -nostdlib
 
-# Flags
-CFLAGS = -ffreestanding -O2 -Wall -Wextra -Ikernel
-LDFLAGS = -T boot/link.ld -nostdlib
+BUILD_DIR  := build
+KERNEL_SRCS := $(wildcard kernel/*.c)
+KERNEL_OBJS := $(patsubst kernel/%.c,$(BUILD_DIR)/%.o,$(KERNEL_SRCS))
+ASM_SRCS   := boot/bootloader.asm
+ASM_OBJS   := $(patsubst boot/%.asm,$(BUILD_DIR)/%.o,$(ASM_SRCS))
 
-# Sources et objets
-C_SOURCES = kernel/kernel.c kernel/keyboard.c kernel/vga.c kernel/system.c kernel/ia.c
-ASM_SOURCES = boot/bootloader.asm
-C_OBJECTS = $(C_SOURCES:.c=.o)
-ASM_OBJECTS = $(ASM_SOURCES:.asm=.o)
+TARGET     := $(BUILD_DIR)/AETHERION_OS.elf
 
-# Nom du kernel
-KERNEL = kernel.bin
+# ----------------- Rules -----------------
+all: $(BUILD_DIR) $(TARGET)
 
-# Tout compiler
-all: $(KERNEL)
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
 
-# Compiler les fichiers C
-%.o: %.c
+# Compile ASM -> OBJ
+$(BUILD_DIR)/%.o: boot/%.asm
+	$(NASM) -f elf64 -o $@ $< -Ikernel
+
+# Compile C -> OBJ
+$(BUILD_DIR)/%.o: kernel/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Assembler le bootloader
-%.o: %.asm
-	$(AS) -f elf64 $< -o $@
-
-# Lier le kernel
-$(KERNEL): $(C_OBJECTS) $(ASM_OBJECTS)
-	$(LD) $(LDFLAGS) -o $(KERNEL) $(ASM_OBJECTS) $(C_OBJECTS)
-
-# Créer une ISO bootable avec GRUB
-os.iso: $(KERNEL)
-	mkdir -p iso/boot/grub
-	cp $(KERNEL) iso/boot/
-	echo 'set timeout=0' > iso/boot/grub/grub.cfg
-	echo 'menuentry "AETHERION OS" { multiboot /boot/kernel.bin }' >> iso/boot/grub/grub.cfg
-	grub-mkrescue -o os.iso iso
+# Link ELF64
+$(TARGET): $(ASM_OBJS) $(KERNEL_OBJS)
+	$(LD) $(LDFLAGS) -o $@ $^
 
 clean:
-	rm -f kernel/*.o boot/*.o $(KERNEL)
-	rm -rf iso
+	rm -rf $(BUILD_DIR)/*
+
+.PHONY: all clean
