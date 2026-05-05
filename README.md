@@ -1,6 +1,6 @@
 # attention ⚠️ 
  plus pris en charge les données écrite sont fausse nous sommes forcés de vous signaler que le projet est en pause est que le repos ne contient que la première version désolé 
- (nous somme de retour mais en douceur info se qui est écrit en bas et toujour archi faux)
+ (nous somme de retour mais en douceur info se qui est écrit en bas et toujours archi faux)
 # AETHERION OS
 
 AETHERION OS est un OS minimaliste 64 bits développé en C et assembleur.
