@@ -70,7 +70,7 @@ dw 0xAA55
 ; =========================
 
 [BITS 16]
-[ORG STAGE2_ADDR]          ; 🔥 correction clé : le stage 2 est assemblé pour 0x7E00
+[ORG STAGE2_ADDR]          ; correction clé : le stage 2 est assemblé pour 0x7E00
 
 stage2_start:
     cli
