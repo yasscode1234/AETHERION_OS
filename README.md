@@ -6,7 +6,6 @@
 AETHERION OS est un OS minimaliste 64 bits développé en C et assembleur.
 
 - Kernel minimal avec affichage texte
-- IA visible à droite de l’écran parlant français
 - Licence GPLv2
 - Compatible QEMU pour tests
 
@@ -16,4 +15,4 @@ AETHERION OS est un OS minimaliste 64 bits développé en C et assembleur.
 2. Compile avec :
 
 ```powershell
-make
+build.bat
